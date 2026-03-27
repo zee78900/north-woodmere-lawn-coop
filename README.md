@@ -6,7 +6,7 @@ The idea: 30+ homes sign up together, negotiate with local vendors as a block, a
 
 ## Live Site
 
-👉 [northwoodmere-lawn-coop.github.io](https://github.com) *(update this link once deployed)*
+👉 https://zee78900.github.io/north-woodmere-lawn-coop
 
 ## Links
 
