@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>North Woodmere Lawn Co-op 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2d6a4f;
+    --green-light: #40916c;
+    --green-pale: #d8f3dc;
+    --gold: #b7791f;
+    --gold-light: #f6e05e;
+    --cream: #fefdf8;
+    --dark: #1a2e1a;
+    --gray: #6b7280;
+    --border: #d1fae5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--green);
+    padding: 48px 24px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -40px;
+    width: 280px; height: 280px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: var(--gold-light);
+    color: var(--gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: white;
+    line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .hero h1 span {
+    color: var(--gold-light);
+  }
+  .hero-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 320px;
+    margin: 0 auto 28px;
+  }
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 8px;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 36px 20px;
+    border-bottom: 1px solid #e8f5e9;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 6px;
+  }
+  .section-sub {
+    font-size: 13px;
+    color: var(--gray);
+    margin-bottom: 20px;
+  }
+
+  /* PROBLEM SECTION */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .problem-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .problem-card .icon { font-size: 26px; margin-bottom: 8px; }
+  .problem-card p { font-size: 13px; color: var(--gray); line-height: 1.4; }
+  .problem-card strong { display: block; font-size: 14px; color: var(--dark); margin-bottom: 4px; }
+
+  /* MATH SECTION */
+  .math-box {
+    background: var(--green);
+    color: white;
+    border-radius: 16px;
+    padding: 24px 20px;
+    margin-bottom: 16px;
+  }
+  .math-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    margin-bottom: 16px;
+    color: var(--gold-light);
+  }
+  .math-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 14px;
+  }
+  .math-row:last-child { border-bottom: none; }
+  .math-row .label { color: rgba(255,255,255,0.7); }
+  .math-row .value { font-weight: 600; }
+  .math-row.highlight .value { color: var(--gold-light); font-size: 16px; }
+  .math-row.highlight .label { color: white; font-weight: 500; }
+
+  .savings-callout {
+    background: var(--green-pale);
+    border: 2px solid var(--green-light);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+  }
+  .savings-callout .big { 
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; 
+    font-weight: 700; 
+    color: var(--green); 
+    display: block; 
+    line-height: 1;
+  }
+  .savings-callout .label {
+    font-size: 13px;
+    color: var(--green-light);
+    margin-top: 4px;
+  }
+
+  /* WHAT'S INCLUDED */
+  .include-list {
+    list-style: none;
+    display: grid;
+    gap: 10px;
+  }
+  .include-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    padding: 12px 14px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .include-list li .check {
+    width: 22px; height: 22px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* STEPS */
+  .steps {
+    display: grid;
+    gap: 14px;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .step-num {
+    width: 36px; height: 36px;
+    background: var(--green);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-content strong {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+  .step-content p {
+    font-size: 13px;
+    color: var(--gray);
+    line-height: 1.5;
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--dark);
+    padding: 40px 24px;
+    text-align: center;
+  }
+  .cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 10px;
+  }
+  .cta p {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .cta-button {
+    display: inline-block;
+    background: var(--green-light);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+  }
+  .cta-note {
+    margin-top: 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* DISCLAIMER */
+  .disclaimer {
+    padding: 20px;
+    background: #f9f9f9;
+    text-align: center;
+    font-size: 11.5px;
+    color: #9ca3af;
+    line-height: 1.6;
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🌿 North Woodmere · Nassau County</div>
+  <h1>Our Neighborhood.<br><span>One Gardener.</span><br>Better Price.</h1>
+  <p class="hero-sub">A collective lawn care co-op for North Woodmere — we go together as one block, get one deal, and all win.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">30+</span>
+      <span class="stat-label">Homes needed</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">~20%</span>
+      <span class="stat-label">Est. savings</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2026</span>
+      <span class="stat-label">Season</span>
+    </div>
+  </div>
+</div>
+
+<!-- THE IDEA -->
+<div class="section">
+  <div class="section-title">Why Are We All Paying Separately?</div>
+  <div class="section-sub">We live on the same streets. We're in the same chats. Let's act like it.</div>
+
+  <div class="problem-grid">
+    <div class="problem-card">
+      <div class="icon">💸</div>
+      <strong>Solo pricing</strong>
+      <p>Individual rates with no leverage — paying full price every week.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">🔀</div>
+      <strong>Inconsistency</strong>
+      <p>Different gardeners, different quality, different schedules.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">📱</div>
+      <strong>The chaos</strong>
+      <p>Chasing down your guy, rescheduling, wondering who showed up.</p>
+    </div>
+    <div class="problem-card">
+      <div class="icon">🏘️</div>
+      <strong>Lost power</strong>
+      <p>30 homes together is serious leverage. Solo? You have none.</p>
+    </div>
+  </div>
+</div>
+
+<!-- THE MATH -->
+<div class="section">
+  <div class="section-title">Let's Talk Numbers</div>
+  <div class="section-sub">Based on real pricing shared in our community chat</div>
+
+  <div class="math-box">
+    <h3>📊 Current Average Cost (Per Home/Year)</h3>
+    <div class="math-row">
+      <span class="label">Community average reported</span>
+      <span class="value">~$1,500/yr</span>
+    </div>
+    <div class="math-row">
+      <span class="label">Spring/Fall cleanups (est. 2×)</span>
+      <span class="value">~$400</span>
+    </div>
+    <div class="math-row">
+      <span class="label">Weekly cuts remaining</span>
+      <span class="value">~$1,100</span>
+    </div>
+    <div class="math-row">
+      <span class="label">Avg weekly rate (mix of $30–$35)</span>
+      <span class="value">~$32.50/wk</span>
+    </div>
+    <div class="math-row highlight">
+      <span class="label">Implied season length</span>
+      <span class="value">~34 weeks</span>
+    </div>
+  </div>
+
+  <div class="savings-callout">
+    <span class="big">Save $200–$400+</span>
+    <p class="label">Per home per year — just by coordinating together</p>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<div class="section">
+  <div class="section-title">What You'd Get</div>
+  <div class="section-sub">One fixed weekly rate. Clearly defined. No surprises.</div>
+
+  <ul class="include-list">
+    <li><span class="check">✓</span><div><strong>Weekly mowing & edging</strong> — front & back, curb-to-fence</div></li>
+    <li><span class="check">✓</span><div><strong>Seasonal cleanups</strong> — spring startup + fall leaf removal (×2/yr)</div></li>
+    <li><span class="check">✓</span><div><strong>Fixed weekly rate</strong> — negotiated as a block, locked in for the season</div></li>
+    <li><span class="check">✓</span><div><strong>Consistent crew</strong> — same people, same day, every week</div></li>
+    <li><span class="check">✗</span><div style="color:#9ca3af"><em>Chemicals/fertilizer not included — add-on option TBD based on vendor</em></div></li>
+  </ul>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section">
+  <div class="section-title">How This Gets Done</div>
+  <div class="section-sub">Simple. 5 steps. It actually works.</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <strong>Sign up via Google Form</strong>
+        <p>Share your lot size, current cost, and what you need. Takes 2 minutes. Link shared in this chat.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <strong>Hit 30 homes minimum</strong>
+        <p>That's our threshold to get real leverage. We'll update the group as we get closer.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <strong>Get quotes from vendors</strong>
+        <p>Once we have the group size confirmed, we go to 2–3 reputable local services and negotiate as a block.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <strong>Vote on the best deal</strong>
+        <p>Everyone sees the options. Group agrees. One simple WhatsApp poll to confirm.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <strong>Season begins</strong>
+        <p>You pay your vendor directly. No one handles anyone's money. Clean and simple.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta">
+  <h2>🌱 Let's Do This Together</h2>
+  <p>No one person is running this — it's a collective. Fill out the form, join the group, and we'll figure it out together.<br><br><strong style="color:white;">No commitment until pricing is confirmed.</strong></p>
+  <a class="cta-button" href="https://forms.gle/cvamnoVkVKLXxHsFA" target="_blank">📋 Fill Out the Interest Form</a>
+  <br><br>
+  <a class="cta-button" style="background:#25D366;" href="https://chat.whatsapp.com/GVkJIA2ud7p3W5yXsVcyXR?mode=gi_t" target="_blank">💬 Join the WhatsApp Group</a>
+  <p class="cta-note">We move forward once we hit 30 homes. Updates posted in the group.</p>
+</div>
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  This is a community-organized initiative. No one is collecting money or signing contracts on your behalf.<br>
+  All pricing to be finalized once vendors are approached with confirmed group size.<br>
+  North Woodmere, Nassau County, NY · Spring 2026
+</div>
+
+</body>
+</html>
